@@ -17,7 +17,7 @@ export const useUpdateMeals= () => {
             return (tempMeals )
         })
         // remove meal from django database
-        let response = await axios.delete(`http://127.0.0.1:8000/removeMeal/${user.user_id}/${id}`)
+        let response = await axios.delete(`https://latifab.pythonanywhere.com/removeMeal/${user.user_id}/${id}`)
         if(response.status === 200){
             console.log('meal deleted')
         }else{
@@ -29,7 +29,7 @@ export const useUpdateMeals= () => {
         setMyMeals(prevMyMeals => prevMyMeals.concat(data.meal))
         
         // add meal to django database
-        let response = await fetch('http://127.0.0.1:8000/postMeals', {
+        let response = await fetch('https://latifab.pythonanywhere.com/postMeals', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
